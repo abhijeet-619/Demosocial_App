@@ -24,7 +24,7 @@ export default function Register() {
       };
       try {
         //console.log(user);
-        await axios.post("/api/auth/register", user);
+        await axios.post("https://mern-demosocial-app.onrender.com/api/auth/register", user);
        // console.log(res);
        // history.push("/login");
         navigate("/login");

@@ -23,7 +23,7 @@ export default function Rightbar({user}) {
   const getCurrentUser= async ()=>{
     try{
       if(user._id){
-      const res=await axios.get(`/api/users?userId=${user._id}`);
+      const res=await axios.get(`https://mern-demosocial-app.onrender.com/api/users?userId=${user._id}`);
      // console.log(res.data);
       (res.data.city)? setCity(res.data.city): setCity(null);
       (res.data.from)? setFrom(res.data.from):setFrom(null);
@@ -51,7 +51,7 @@ export default function Rightbar({user}) {
         //console.log(user._id);
         setFollowed(currentUser.followings.includes(user._id));
         if(user._id){
-        const friendList = await axios.get(`/api/users/friends/${user._id}`);
+        const friendList = await axios.get(`https://mern-demosocial-app.onrender.com/api/users/friends/${user._id}`);
         setFriends(friendList.data);
     }
       } catch (err) {
@@ -66,12 +66,12 @@ export default function Rightbar({user}) {
 
      // console.log(followed)
       if (followed) {
-        await axios.put(`/api/users/${user._id}/unfollow`, {
+        await axios.put(`https://mern-demosocial-app.onrender.com/api/users/${user._id}/unfollow`, {
           userId: currentUser._id,
         });
         dispatch({ type: "UNFOLLOW", payload: user._id });
       } else {
-        await axios.put(`/api/users/${user._id}/follow`, {
+        await axios.put(`https://mern-demosocial-app.onrender.com/api/users/${user._id}/follow`, {
           userId: currentUser._id,
         });
         dispatch({ type: "FOLLOW", payload: user._id });
@@ -111,7 +111,7 @@ export default function Rightbar({user}) {
       //console.log(new_data);
       //setInfo({...newInfo,...new_data});
       try{
-         await axios.put("/api/users/"+currentUser._id,new_data)
+         await axios.put("https://mern-demosocial-app.onrender.com/api/users/"+currentUser._id,new_data)
       }
       catch{
         console.log("error while update");

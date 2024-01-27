@@ -25,7 +25,7 @@ export default function Profile() {
   //console.log({username,user});
   useEffect(()=>{
     const fetchUser=async ()=>{
-      const res = await axios.get(`/api/users?username=${username}`);
+      const res = await axios.get(`https://mern-demosocial-app.onrender.com/api/users?username=${username}`);
       //console.log(res.data);
       setUser(res.data);
     };
@@ -45,11 +45,11 @@ export default function Profile() {
       newImg.coverPicture = fileName;
       console.log(newImg);
       try {
-        await axios.post("/api/upload", data);
+        await axios.post("https://mern-demosocial-app.onrender.com/api/upload", data);
         console.log(data);
       } catch (err) {}
       try {
-        await axios.put(`/api/users/${user._id}`, newImg);
+        await axios.put(`https://mern-demosocial-app.onrender.com/api/users/${user._id}`, newImg);
         window.location.reload();
       } catch (err) {}
   }
@@ -71,11 +71,11 @@ export default function Profile() {
        newImg.profilePicture = fileName;
        console.log(newImg);
        try {
-         await axios.post("/api/upload", data);
+         await axios.post("https://mern-demosocial-app.onrender.com/api/upload", data);
          console.log(data);
        } catch (err) {}
        try {
-         await axios.put(`/api/users/${user._id}`, newImg);
+         await axios.put(`https://mern-demosocial-app.onrender.com/api/users/${user._id}`, newImg);
          window.location.reload();
        } catch (err) {}
    }

@@ -21,7 +21,7 @@ export default function Post({ post }) {
 
   useEffect(() => {
     const fetchUser = async () => {
-      const res = await axios.get(`/api/users?userId=${post.userId}`);
+      const res = await axios.get(`https://mern-demosocial-app.onrender.com/api/users?userId=${post.userId}`);
     //  console.log(res.data)
       setUser(res.data);
     };
@@ -30,7 +30,7 @@ export default function Post({ post }) {
 
   const likeHandler = () => {
     try {
-      axios.put("/api/posts/" + post._id + "/like", { userId: currentUser._id });
+      axios.put("https://mern-demosocial-app.onrender.com/api/posts/" + post._id + "/like", { userId: currentUser._id });
     } catch (err) {}
     setLike(isLiked ? like - 1 : like + 1);
     setIsLiked(!isLiked);

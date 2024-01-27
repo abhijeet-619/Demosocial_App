@@ -13,7 +13,7 @@ export default function Topbar() {
   const searchFriend= async()=>{
     const searchName=document.getElementsByClassName("searchInput")[0].value;
     //console.log(searchName);
-    const searchUser=await axios.get(`/api/users?username=${searchName}`);
+    const searchUser=await axios.get(`https://mern-demosocial-app.onrender.com/api/users?username=${searchName}`);
     console.log(searchUser);
     if(searchUser){
       navigate(`/profile/${searchName}`);  
