@@ -15,7 +15,7 @@ const router = express.Router();
 const path = require("path");
 
 const corsOrigin ={
-    origin:'https://demosocial-app.netlify.app', //or whatever port your frontend is using
+    origin:'https://mern-demosocial-app.onrender.com', //or whatever port your frontend is using
     credentials:true,            
     optionSuccessStatus:200
 }
